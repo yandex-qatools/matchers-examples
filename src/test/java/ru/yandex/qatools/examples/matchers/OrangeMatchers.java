@@ -2,8 +2,11 @@ package ru.yandex.qatools.examples.matchers;
 
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import ru.yandex.qatools.examples.Fruit;
 import ru.yandex.qatools.examples.Shape;
+
+import java.awt.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -41,10 +44,10 @@ public class OrangeMatchers {
     }
 
 
-    public static Matcher<Fruit> hasColor(String color) {
-        return new FeatureMatcher<Fruit, String>(equalToIgnoringCase(color), "fruit have color - ", "color -") {
+    public static Matcher<Fruit> hasColor(final Color color) {
+        return new FeatureMatcher<Fruit, Color>(equalTo(color), "fruit have color - ", "color -") {
             @Override
-            protected String featureValueOf(Fruit fruit) {
+            protected Color featureValueOf(Fruit fruit) {
                 return fruit.getColor();
             }
         };

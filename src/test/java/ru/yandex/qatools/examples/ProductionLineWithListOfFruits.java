@@ -2,10 +2,11 @@ package ru.yandex.qatools.examples;
 
 import org.junit.Test;
 
-import static java.util.Arrays.asList;
+import java.awt.*;
+import java.util.Collection;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.yandex.qatools.examples.Fruit.*;
 import static ru.yandex.qatools.examples.matchers.OrangeMatchers.*;
 
 /**
@@ -16,41 +17,26 @@ import static ru.yandex.qatools.examples.matchers.OrangeMatchers.*;
  */
 public class ProductionLineWithListOfFruits {
 
+    private Collection<Fruit> fruitList = FruitFactory.createFruitsList();
+
     @Test
     public void orangeListBothSweetRoundAndOrangeColorWithMatchers() throws Exception {
-        assertThat(asList(new Fruit(), new Fruit(), new Fruit()),
-                everyItem(both(round()).and(sweet()).and(hasColor(ORANGE_COLOR))));
+        assertThat(fruitList, everyItem(both(round()).and(sweet()).and(hasColor(Color.ORANGE))));
     }
 
     @Test
     public void notAllOrangeListBothSweetRoundAndOrangeColorWithMatchers() throws Exception {
-        assertThat(
-                asList(
-                        new Fruit(NOT_SWEET, Shape.SQUARE, ORANGE_COLOR),
-                        new Fruit(),
-                        new Fruit()
-                ),
-                everyItem(both(round()).and(sweet()).and(hasColor(ORANGE_COLOR))));
+        assertThat(fruitList, everyItem(both(round()).and(sweet()).and(hasColor(Color.ORANGE))));
     }
 
     @Test
     public void hasOrangeInListBothSweetRoundAndOrangeColorWithMatchers() throws Exception {
-        assertThat(
-                asList(
-                        new Fruit(NOT_SWEET, Shape.SQUARE, ORANGE_COLOR),
-                        new Fruit()
-                ),
-                hasItem(both(round()).and(sweet()).and(hasColor(ORANGE_COLOR))));
+        assertThat(fruitList, hasItem(both(round()).and(sweet()).and(hasColor(Color.ORANGE))));
     }
 
     @Test
     public void hasntOrangeInListBothSweetRoundAndOrangeColorWithMatchers() throws Exception {
-        assertThat(
-                asList(
-                        new Fruit(NOT_SWEET, Shape.SQUARE, ORANGE_COLOR),
-                        new Fruit(SWEET, Shape.SQUARE, ORANGE_COLOR)
-                ),
-                hasItem(both(round()).and(sweet()).and(hasColor(ORANGE_COLOR))));
+        assertThat(fruitList, hasItem(both(round()).and(sweet()).and(hasColor(Color.ORANGE))));
     }
 
 }
