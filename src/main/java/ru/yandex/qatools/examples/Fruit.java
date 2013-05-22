@@ -1,5 +1,7 @@
 package ru.yandex.qatools.examples;
 
+import java.awt.*;
+
 /**
  * Created with IntelliJ IDEA.
  * User: lanwen
@@ -7,26 +9,21 @@ package ru.yandex.qatools.examples;
  * Time: 15:22
  */
 public class Fruit {
+
     public static final boolean SWEET = true;
+
     public static final boolean NOT_SWEET = false;
-    public static final String ORANGE_COLOR = "orange";
 
-    private boolean sweet = true;
-    private Shape shape = Shape.ROUND;
-    private String color = "orange";
+    private boolean sweet;
 
-    public Fruit() {
-        // init with default values
-    }
+    private Shape shape;
 
-    public Fruit(boolean sweet, Shape shape, String color) {
+    private Color color;
+
+    public Fruit(boolean sweet, Shape shape, Color color) {
         this.sweet = sweet;
         this.shape = shape;
         this.color = color;
-    }
-
-    public String getColor() {
-        return color;
     }
 
     public boolean isSweet() {
@@ -36,4 +33,9 @@ public class Fruit {
     public Shape getShape() {
         return shape;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
 }
