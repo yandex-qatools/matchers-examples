@@ -10,6 +10,44 @@
 
     <name>Yandex QATools Matchers Examples</name>
 
+
+
+    <organization>
+        <name>Yandex</name>
+        <url>http://company.yandex.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+
+    <scm>
+        <url>https://github.com/yandex-qatools/matchers-examples</url>
+        <connection>scm:git:git@github.com:yandex-qatools/matchers-examples.git</connection>
+        <developerConnection>scm:git:git@github.com:yandex-qatools/matchers-examples.git</developerConnection>
+    </scm>
+
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/yandex-qatools/matchers-examples/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>lanwen</id>
+            <name>Merkushev Kirill</name>
+            <email>lanwen@yandex-team.ru</email>
+            <organization>Yandex</organization>
+        </developer>
+    </developers>
+
+
     <dependencies>
         <dependency>
             <groupId>com.googlecode.lambdaj</groupId>
